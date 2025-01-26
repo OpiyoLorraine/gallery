@@ -8,9 +8,10 @@ pipeline {
                 echo "this is build stage"
             }
         }
-        stage('Build') { 
+        stage('Clean Install') {
             steps {
-                sh 'npm install' 
+                sh 'rm -rf node_modules package-lock.json'
+                sh 'npm install'
             }
         }
     }
